@@ -1,0 +1,22 @@
+{% extends "WritingNotes/layout.html" %}
+{%block title%}
+Writing Notes
+{%endblock%}
+
+{% block head%}
+
+{%endblock%}
+
+{% block body %}
+<div id="divnewnote" style="display:flex;align-items: center;justify-content: center;">
+    <button id="newnote" class="newnote"onclick="newnote()" >Quick Note</button>
+    <button id="newtag"class="newnote" onclick="newtag()" >New Tag</button>
+    <button id="newflash"class="newnote" onclick="newflash()" >New Flashcard</button>
+</div>
+<!-- Various notes -->
+<div id="multiplenotes" style="margin-bottom: 20px;">
+</div>
+<!-- only one -->
+<div id="single">
+</div>
+{% endblock %}

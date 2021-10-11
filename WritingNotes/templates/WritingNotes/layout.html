@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}Writing Notes{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script>
+          function user()
+          {
+            var user = "{{user}}"
+            return user
+          }
+        </script>
+        <script src="{% static 'WritingNotes/display.js' %}"></script>
+        <script src="{% static 'WritingNotes/layout.js' %}"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@500&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=KoHo:ital@1&display=swap" rel="stylesheet">
+        <link href="{% static 'WritingNotes/styles.css' %}" rel="stylesheet">
+{% block head %}
+{% endblock %}
+    </head>
+
+<body>
+    <div style="background: linear-gradient(rgba(207, 207, 207, 0.953) 0%, rgba(255,255,255,0.5214679621848739) 100%);margin-left:0px; margin-right:0px;" >
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4">
+        <strong>
+        <a onclick="load_type('All')" style="font-size:xx-large; color:black;font-family: 'KoHo';padding-left: 20px;"class="layoutlink d-flex align-items-center mb-2 mb-md-0  ">
+            Writing Notes           
+        </a>
+    </strong>    
+    
+          <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <li><strong><a id="All" class="layoutlink nav-link px-2 link-secondary Types">All</a></strong></li>
+            <li><strong><a id="Noteslink" class="layoutlink nav-link px-2 link-secondary Types">Notes</a></strong></li>
+            <li><strong><a id="Public" class="layoutlink nav-link px-2 link-dark Types">Public</a></strong></li>
+            <li><strong><a id="NewNoteslink" href="{% url 'New note'%}" class="layoutlink nav-link px-2 link-dark">New Note</a></strong></li>
+            <li><strong><a id="Relevant" class="layoutlink nav-link px-2 link-dark Types">Relevant</a></strong></li>
+            <li><strong><a id="Flashcards" class="layoutlink nav-link px-2 link-dark Types">Flashcards</a></strong></li>
+          </ul>
+          <div class="col-md-2 text-end">
+            {% if user.is_authenticated %}
+            <button type="button" onclick="location.href=`{% url 'logout'%}`" style="background-color: rgb(240, 240, 240);"class="btn btn-outline-primary me-2">Logout</button>
+            {% else %}
+            <button type="button" onclick="location.href=`{% url 'login'%}`" style="background-color: rgb(240, 240, 240);"class="btn btn-outline-primary me-2">Login</button>
+            <button type="button" onclick="location.href=`{% url 'register'%}`" class="btn btn-primary">Sign-up</button>
+            {%endif%}
+          </div>
+        </header>
+      </div>
+        
+{% block body%}
+{%endblock%}
+</body>
+</html>

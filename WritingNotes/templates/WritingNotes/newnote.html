@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}Writing Notes{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="{% static 'WritingNotes/layout.js' %}"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=KoHo:ital@1&display=swap" rel="stylesheet">
+        <link href="{% static 'WritingNotes/styles.css' %}" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&amp;display=swap" rel="stylesheet">
+    </head>
+
+<body>
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-left py-3 mb-4 border-bottom">
+            <a href="/">
+              <span style="font-size:xx-large ;color:black;font-family: 'KoHo';"id="left"><strong>Writing Notes</strong></span><span id="right"></span>
+            </a>
+          </header>
+      </div>
+<h2 style="margin-left: 80px;">New note</h2>
+
+<div id="newnotediv">
+<form method="POST" action="{% url 'new' %}" style="margin: 40px;">
+    <label class="labels"for="title">Title:</label>
+    <input type="text" name="title"required id="title" placeholder="title">
+    <br><br><label class="labels" for="body">Note:</label><br>
+    <textarea placeholder="Here goes a note..." required name="body" id="body" style="height: 800px; width: 80vw;"></textarea>
+    <div><p class="labels">Color: </p><input placeholder="like: rgb(0,0,0) or #ffffff" type="text" name="color" id="color"></div>
+    <br><div><label class="labels"for="relevant">Relevant</label>
+    <input type="checkbox" name="relevant" id="relevantness" value="True">
+    </div>
+    <input type="submit" value="Save">
+</form>
+</div>
+<div id="multiplenotes">
+</div>
+<!-- only one -->
+<div id="single">
+</div>
+</body>
