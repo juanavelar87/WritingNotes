@@ -63,5 +63,5 @@ Werkzeug==2.0.1
 whitenoise==5.3.0
 wrapt==1.12.1
 yapf==0.31.0
-yarl==1.6.3Djan
+yarl==1.6.3
 psycopg2-binary==2.8.6
