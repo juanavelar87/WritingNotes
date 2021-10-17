@@ -25,7 +25,7 @@ SECRET_KEY = '*ktaic3#ro0iqh0w3h-&u5_27##-prevnyk+0_4l#t&%3kijpn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['writingnotes0.herokuapp.com/']
+ALLOWED_HOSTS = ['writingnotes0.herokuapp.com']
 
 
 # Application definition
