@@ -84,6 +84,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+SECURE_HSTS_SECONDS = 31536000
 
 AUTH_USER_MODEL = 'WritingNotes.User'
 # Password validation
