@@ -131,6 +131,9 @@ def eliminate(request,id):
         note.delete()
     finally:
         pass
+    return JsonResponse({"message": "Eliminated successfully"}, status=204)
+    
+
 @csrf_exempt
 @login_required
 def new(request):
